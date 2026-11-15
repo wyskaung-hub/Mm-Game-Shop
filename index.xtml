@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MM Game Shop</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080817;color:white;font-family:Arial,sans-serif}
+header{padding:18px;background:#11112a;text-align:center;border-bottom:2px solid #742cff}
+.logo{font-size:28px;font-weight:bold;color:#ffca28}
+nav{padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:35px 15px;text-align:center;background:linear-gradient(135deg,#25105d,#080817,#172c70)}
+.hero h1{font-size:34px;color:#ffca28}
+.hero p{color:#ddd}
+.games{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:20px}
+.game{background:#171733;padding:18px;border:1px solid #673cff;border-radius:12px}
+section{padding:20px;max-width:1000px;margin:auto}
+h2{color:#c59aff}
+.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.card{background:#171733;border:1px solid #34345c;padding:16px;border-radius:12px;text-align:center}
+.price{color:#ffca28;font-size:20px;font-weight:bold}
+button{background:#722cff;color:white;border:0;padding:12px;border-radius:8px;font-weight:bold;cursor:pointer}
+button:hover{background:#934fff}
+input,select{width:100%;padding:14px;margin:8px 0;background:#171733;color:white;border:1px solid #555;border-radius:8px}
+form{background:#171733;padding:20px;border-radius:12px}
+footer{text-align:center;padding:25px;color:#aaa;background:#11112a}
+</style>
+</head>
+<body>
+<header>
+<div class="logo"> MM GAME SHOP</div>
+<p>Play More  Top Up Easier</p>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#pubg">PUBG UC</a>
+<a href="#mlbb">MLBB Diamond</a>
+<a href="#order">Order</a>
+</nav>
+
+<div class="hero" id="home">
+<h1>MM GAME SHOP</h1>
+<h2>Your Game Top-Up Store</h2>
+<p>Fast  Safe  Reliable</p>
+<button onclick="document.getElementById('order').scrollIntoView()">TOP UP NOW</button>
+</div>
+
+<div class="games">
+<div class="game"> PUBG MOBILE</div>
+<div class="game"> MOBILE LEGENDS</div>
+</div>
+
+<section id="pubg">
+<h2> PUBG Mobile UC</h2>
+<div class="packages">
+<div class="card">60 UC<p class="price">RM 4.50</p><button onclick="choose('PUBG','60 UC','4.50')">Buy</button></div>
+<div class="card">325 UC<p class="price">RM 19.50</p><button onclick="choose('PUBG','325 UC','19.50')">Buy</button></div>
+<div class="card">660 UC<p class="price">RM 38.90</p><button onclick="choose('PUBG','660 UC','38.90')">Buy</button></div>
+<div class="card">1800 UC<p class="price">RM 99.50</p><button onclick="choose('PUBG','1800 UC','99.50')">Buy</button></div>
+<div class="card">3850 UC<p class="price">RM 199.00</p><button onclick="choose('PUBG','3850 UC','199.00')">Buy</button></div>
+<div class="card">8100 UC<p class="price">RM 395.00</p><button onclick="choose('PUBG','8100 UC','395.00')">Buy</button></div>
+</div>
+</section>
+
+<section id="mlbb">
+<h2> Mobile Legends Diamonds</h2>
+<div class="packages">
+<div class="card">86 Diamonds<p class="price">RM 4.50</p><button onclick="choose('MLBB','86 Diamonds','4.50')">Buy</button></div>
+<div class="card">172 Diamonds<p class="price">RM 8.90</p><button onclick="choose('MLBB','172 Diamonds','8.90')">Buy</button></div>
+<div class="card">257 Diamonds<p class="price">RM 12.90</p><button onclick="choose('MLBB','257 Diamonds','12.90')">Buy</button></div>
+<div class="card">514 Diamonds<p class="price">RM 24.90</p><button onclick="choose('MLBB','514 Diamonds','24.90')">Buy</button></div>
+<div class="card">1057 Diamonds<p class="price">RM 49.90</p><button onclick="choose('MLBB','1057 Diamonds','49.90')">Buy</button></div>
+<div class="card">2195 Diamonds<p class="price">RM 99.90</p><button onclick="choose('MLBB','2195 Diamonds','99.90')">Buy</button></div>
+</div>
+</section>
+
+<section id="order">
+<h2> Place Your Order</h2>
+<form onsubmit="submitOrder(event)">
+<label>Game</label>
+<select id="game"><option>PUBG</option><option>MLBB</option></select>
+<label>Package</label>
+<input id="package" placeholder="Select package from above" required>
+<label>Game ID</label>
+<input id="gameid" placeholder="Enter your Game ID" required>
+<label>Server ID (MLBB only)</label>
+<input id="server" placeholder="Server ID">
+<label>Payment Method</label>
+<select id="payment"><option>Touch 'n Go</option><option>DuitNow</option><option>KPay</option></select>
+<p id="total">Price: RM 0.00</p>
+<button type="submit">SUBMIT ORDER</button>
+</form>
+</section>
+
+<footer>
+<p>MM Game Shop</p>
+<p>Customer Support  Terms  Privacy</p>
+<p> MM Game Shop</p>
+</footer>
+
+<script>
+function choose(game,pkg,price){
+document.getElementById('game').value=game;
+document.getElementById('package').value=pkg;
+document.getElementById('total').innerText='Price: RM '+price;
+document.getElementById('order').scrollIntoView();
+}
+function submitOrder(e){
+e.preventDefault();
+alert('Demo only! Orders and payments are not connected yet.');
+}
+</script>
+</body>
+</html>
